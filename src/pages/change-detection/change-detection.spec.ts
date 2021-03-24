@@ -2,8 +2,7 @@ import { Mock } from 'tsmockit';
 import { IEventStore } from 'tsbase/Patterns/EventStore/IEventStore';
 import { IObservable } from 'tsbase/Patterns/Observable/IObservable';
 import { Strings } from 'tsbase/Functions/Strings';
-import { TestHelpers } from '../../fjord/utilities/tests/testHelpers.spec';
-import { RenderModes, Route } from '../../fjord/module';
+import { RenderModes, Route, TestHelpers } from 'fyord';
 import { ChangeDetectionPage, Keys } from './change-detection';
 import { Routes } from '../routes';
 

@@ -1,4 +1,4 @@
-import { Page, ParseJsx, Route } from '../fjord/module';
+import { Page, ParseJsx, Route } from 'fyord';
 import { Classes } from '../enums/classes';
 import { Routes } from './routes';
 

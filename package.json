@@ -45,6 +45,7 @@
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^4.2.2",
     "xss": "^1.0.8",
-    "html-webpack-plugin": "^4.5.2"
+    "html-webpack-plugin": "^4.5.2",
+    "fyord": "0.0.4"
   }
 }

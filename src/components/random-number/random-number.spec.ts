@@ -1,5 +1,4 @@
-import { EventTypes } from '../../fjord/module';
-import { TestHelpers } from '../../fjord/utilities/tests/testHelpers.spec';
+import { TestHelpers, EventTypes } from 'fyord';
 import { RandomNumberComponent, Keys } from './random-number';
 
 describe('RandomNumberComponent', () => {

@@ -1,5 +1,5 @@
 import { HttpClient } from 'tsbase/Net/Http/HttpClient';
-import { App, ISeoService, Page, ParseJsx, Route, SeoService } from '../fjord/module';
+import { App, ISeoService, Page, ParseJsx, Route, SeoService } from 'fyord';
 import { ChuckNorrisJoke, chuckNorrisJokeApi } from './awaited-http-request';
 import { Routes } from './routes';
 

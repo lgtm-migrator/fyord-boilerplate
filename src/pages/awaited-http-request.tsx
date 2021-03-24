@@ -1,5 +1,5 @@
 import { HttpClient } from 'tsbase/Net/Http/HttpClient';
-import { ParseJsx, Page, RenderModes, Route, App, ISeoService, SeoService } from '../fjord/module';
+import { ParseJsx, Page, RenderModes, Route, App, ISeoService, SeoService } from 'fyord';
 import { Routes } from './routes';
 
 export const chuckNorrisJokeApi = 'https://api.chucknorris.io/jokes/random';

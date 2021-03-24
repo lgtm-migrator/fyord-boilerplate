@@ -1,4 +1,4 @@
-import { ParseJsx, Component } from '../../fjord/module';
+import { ParseJsx, Component } from 'fyord';
 import { Routes } from '../../pages/routes';
 import styles from './header.module.scss';
 

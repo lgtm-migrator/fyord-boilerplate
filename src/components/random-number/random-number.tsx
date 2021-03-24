@@ -1,4 +1,4 @@
-import { Component, EventTypes, ParseJsx } from '../../fjord/module';
+import { Component, EventTypes, ParseJsx } from 'fyord';
 import { ArrayFunctions } from 'tsbase/Functions/ArrayFunctions';
 
 export enum Keys {

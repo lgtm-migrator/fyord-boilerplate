@@ -1,5 +1,4 @@
-import { EventTypes } from '../../fjord/module';
-import { TestHelpers } from '../../fjord/utilities/tests/testHelpers.spec';
+import { EventTypes, TestHelpers } from 'fyord';
 import { DataBindingComponent, Keys } from './data-binding';
 
 describe('DataBindingComponent', () => {

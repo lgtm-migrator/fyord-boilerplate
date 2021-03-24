@@ -1,4 +1,4 @@
-import { ParseJsx, Page, Route, RawHtml } from '../fjord/module';
+import { ParseJsx, Page, Route, RawHtml } from 'fyord';
 import { Classes } from '../enums/classes';
 import { Routes } from './routes';
 import { DataBindingComponent } from '../components/data-binding/data-binding';

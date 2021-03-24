@@ -1,4 +1,4 @@
-import { ParseJsx, Page, Route } from '../../fjord/module';
+import { ParseJsx, Page, Route } from 'fyord';
 import { Routes } from '../routes';
 
 export class RouteParamsPage extends Page {

@@ -1,4 +1,4 @@
-import { ParseJsx, Page, RenderModes, Route } from '../../fjord/module';
+import { ParseJsx, Page, RenderModes, Route } from 'fyord';
 import styles from './not-found.module.scss';
 
 export class NotFoundPage extends Page {

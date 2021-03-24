@@ -1,7 +1,6 @@
 import { Mock, Times } from 'tsmockit';
 import { HttpClient } from 'tsbase/Net/Http/HttpClient';
-import { TestHelpers } from '../../fjord/utilities/tests/testHelpers.spec';
-import { Route } from '../../fjord/module';
+import { TestHelpers, Route } from 'fyord';
 import { AwaitedHttpRequestPage } from '../awaited-http-request';
 import { Routes } from '../routes';
 

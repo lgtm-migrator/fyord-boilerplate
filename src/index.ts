@@ -1,5 +1,4 @@
-import { Environments } from './fjord/core/environments';
-import { App } from './fjord/core/app';
+import { App, Environments } from 'fyord';
 import { defaultLayout, InitialState, State } from './core/module';
 import './styles/styles.scss';
 

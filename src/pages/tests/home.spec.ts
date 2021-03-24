@@ -1,5 +1,4 @@
-import { TestHelpers } from '../../fjord/utilities/tests/testHelpers.spec';
-import { Route } from '../../fjord/core/module';
+import { TestHelpers, Route } from 'fyord';
 import { HomePage } from '../home';
 import { Routes } from '../routes';
 

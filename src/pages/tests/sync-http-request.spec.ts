@@ -1,8 +1,7 @@
 import { Mock, Times } from 'tsmockit';
 import { HttpClient } from 'tsbase/Net/Http/HttpClient';
 import { Strings } from 'tsbase/Functions/Strings';
-import { TestHelpers } from '../../fjord/utilities/tests/testHelpers.spec';
-import { RenderModes, Route } from '../../fjord/module';
+import { TestHelpers, RenderModes, Route } from 'fyord';
 import { Routes } from '../routes';
 import { LoadingHttpRequestPage } from '../loading-http-request';
 

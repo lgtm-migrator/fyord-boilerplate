@@ -1,4 +1,4 @@
-import { Component, EventTypes, ParseJsx } from '../../fjord/module';
+import { Component, EventTypes, ParseJsx } from 'fyord';
 
 export enum Keys {
   Input = 'inputValue',

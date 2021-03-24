@@ -1,4 +1,4 @@
-import { ParseJsx, EventTypes, Page, Route } from '../../fjord/module';
+import { ParseJsx, EventTypes, Page, Route } from 'fyord';
 import { StatePaths } from '../../core/state';
 import { Routes } from '../routes';
 import { DataBindingComponent } from '../../components/data-binding/data-binding';
