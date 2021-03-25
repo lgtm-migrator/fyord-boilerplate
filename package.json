@@ -46,6 +46,7 @@
     "webpack-merge": "^4.2.2",
     "xss": "^1.0.8",
     "html-webpack-plugin": "^4.5.2",
-    "fyord": "../fyord/dist"
+    "fyord": "../fyord/dist",
+    "fs-extra": "^9.1.0"
   }
 }
