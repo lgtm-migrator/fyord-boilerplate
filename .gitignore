@@ -5,3 +5,4 @@ TESTS*.xml
 *debug.log
 public
 .DS_Store
+workspace.*
