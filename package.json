@@ -1,5 +1,5 @@
 {
-  "name": "fjord",
+  "name": "fyord",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -46,7 +46,7 @@
     "webpack-merge": "^4.2.2",
     "xss": "^1.0.8",
     "html-webpack-plugin": "^4.5.2",
-    "fyord": "0.0.4",
+    "fyord": "0.0.5",
     "fs-extra": "^9.1.0"
   }
 }

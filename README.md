@@ -1,9 +1,12 @@
-# fjord boilerplate
+# fyord boilerplate
 Boilerplate project using the fyord framework
 
 ## Installation / Local Development
 - `npm i`
 - `npm start`
+
+### Snippets
+Snippets are included (prefix `fy-`) to allow quick scaffolding
 
 ## Lint
 - `npm run lint`

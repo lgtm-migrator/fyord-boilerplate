@@ -6,7 +6,7 @@ export class ExamplesPage extends Page {
   Title = 'Examples';
   private examples = [
     { label: 'Routing', href: Routes.Routing, description: 'Learn how to use the router' },
-    { label: 'Security', href: Routes.Security, description: 'Best practices in fjord' },
+    { label: 'Security', href: Routes.Security, description: 'Best practices in fyord' },
     {
       label: 'Awaited Http Request',
       href: Routes.AwaitedHttpRequest,
@@ -17,7 +17,7 @@ export class ExamplesPage extends Page {
       href: Routes.LoadingHttpRequest,
       description: 'A page which will display while loading - an can be preloaded if not the landing page'
     },
-    { label: 'Change Detection', href: Routes.ChangeDetection, description: 'Usage of fjord\'s app state store and other forms of change detection' }
+    { label: 'Change Detection', href: Routes.ChangeDetection, description: 'Usage of fyord\'s app state store and other forms of change detection' }
   ]
 
   Route = (route: Route) => route.path === Routes.Examples;

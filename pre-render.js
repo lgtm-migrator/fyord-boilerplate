@@ -12,9 +12,9 @@ const config = {
     'google', 'paypal', 'gstatic'
   ],
   renderModes: {
-    dynamic: '<!-- fjord-dynamic-render -->',
-    static: '<!-- fjord-static-render -->',
-    hybrid: '<!-- fjord-hybrid-render -->'
+    dynamic: '<!-- fyord-dynamic-render -->',
+    static: '<!-- fyord-static-render -->',
+    hybrid: '<!-- fyord-hybrid-render -->'
   },
   bundleScriptRegex: /<script src="\/bundle.js(.*?)"><\/script>/,
   unsupportedBrowserScript: '<script src="/unsupported-browser.js"></script>'
