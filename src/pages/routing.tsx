@@ -10,7 +10,7 @@ export class RoutingPage extends Page {
   Html = async () => {
     return <div>
       <h1>{this.Title}</h1>
-      <p>Routing in fjord is seamless.  Simply use normal anchor tags, and local urls which aren't target blank will be routed on the client.</p>
+      <p>Routing in fyord is seamless.  Simply use normal anchor tags, and local urls which aren't target blank will be routed on the client.</p>
       <p>The below examples demonstrate this. Follow any of the "params" links to see how to make use of the respective parameter types.</p>
 
       <ul class={Classes.ListStyle}>

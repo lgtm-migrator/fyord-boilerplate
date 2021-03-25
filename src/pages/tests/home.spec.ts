@@ -29,6 +29,6 @@ describe('HomePage', () => {
 
   it('should render an h1', async () => {
     const content = await classUnderTest.Render();
-    expect(content).toContain('<h1>fjord</h1>');
+    expect(content).toContain('<h1>fyord</h1>');
   });
 });

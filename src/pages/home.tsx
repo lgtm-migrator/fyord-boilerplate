@@ -7,7 +7,7 @@ export class HomePage extends Page {
   Route = (route: Route) => route.path === Routes.Home;
   Html = async () => {
     return <div>
-      <h1>fjord</h1>
+      <h1>fyord</h1>
       <p>Light-weight framework designed to embrace core competencies</p>
 
       <section>
@@ -41,7 +41,7 @@ export class HomePage extends Page {
           <li><span>Serverless</span>
             <ul class={Classes.ListStyle}>
               <li><span>No features require server-side functionality outside of build / pipeline</span></li>
-              <li><span>Hosting fjord apps should only require a file server</span></li>
+              <li><span>Hosting fyord apps should only require a file server</span></li>
               <li><span>Support build time (pipeline) pre-rendering</span></li>
             </ul>
           </li>
@@ -51,7 +51,7 @@ export class HomePage extends Page {
       <section>
         <h2>Getting started</h2>
 
-        <p>Use this project as a starting point for a new <i>fjord</i> app or as living documentation for <i>fjord's</i> features.</p>
+        <p>Use this project as a starting point for a new <i>fyord</i> app or as living documentation for <i>fyord's</i> features.</p>
         <p><a href={Routes.Examples}>See examples</a></p>
       </section>
     </div>;

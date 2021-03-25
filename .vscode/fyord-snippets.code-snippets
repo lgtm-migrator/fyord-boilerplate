@@ -1,9 +1,9 @@
 {
 	"Component": {
 		"scope": "typescript,typescriptreact",
-		"prefix": "fj-component",
+		"prefix": "fy-component",
 		"body": [
-			"import { Component, ParseJsx } from '../fjord/module';",
+			"import { Component, ParseJsx } from 'fyord';",
 			"import styles from './$2.module.scss';",
 			"",
 			"export class $1 extends Component {",
@@ -16,9 +16,9 @@
 	},
 	"Page": {
 		"scope": "typescript,typescriptreact",
-		"prefix": "fj-page",
+		"prefix": "fy-page",
 		"body": [
-			"import { Page, ParseJsx, Route } from '../fjord/module';",
+			"import { Page, ParseJsx, Route } from 'fyord';",
 			"import styles from './$2.module.scss';",
 			"",
 			"export class $1 extends Page {",
@@ -37,10 +37,9 @@
 	},
 	"Page Spec": {
 		"scope": "typescript,typescriptreact",
-		"prefix": "fj-spec-page",
+		"prefix": "fy-spec-page",
 		"body": [
-			"import { TestHelpers } from '../../fjord/utilities/tests/testHelpers.spec';",
-			"import { RenderModes, Route } from '../../fjord/module';",
+			"import { RenderModes, Route, TestHelpers } from 'fyord';",
 			"",
 			"describe('$1', () => {",
 				"\tlet classUnderTest: $1$0;",

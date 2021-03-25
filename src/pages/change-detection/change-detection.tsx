@@ -22,7 +22,7 @@ export class ChangeDetectionPage extends Page {
 
       <section>
         <h2>App Store</h2>
-        <p>A fjord app's store can be utilized to retrieve current values for initial render, as well as trigger
+        <p>A fyord app's store can be utilized to retrieve current values for initial render, as well as trigger
         a new render when the requested state value changes.</p>
 
         <p>User's Age: <b>{this.userAge()}</b></p>
