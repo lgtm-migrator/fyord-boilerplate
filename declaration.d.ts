@@ -1,2 +1,2 @@
-// declaration.d.ts
+// CSS modules
 declare module '*.scss';

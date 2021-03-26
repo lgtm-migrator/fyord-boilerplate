@@ -1,10 +1,10 @@
 {
-  "name": "fyord",
+  "name": "fyord-boilerplate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "private": true,
-  "author": "Joseph Bayes",
+  "author": "Fyord",
   "license": "ISC",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
@@ -13,7 +13,7 @@
     "test": "jest --watch",
     "test-once": "jest --collectCoverage --coverageReporters lcov clover",
     "lint": "eslint src/**/*.ts",
-    "pre-render": "node pre-render.js && cp -R public/pre-render/* public/ && rm -rf public/pre-render"
+    "pre-render": "fyord && cp -R public/pre-render/* public/ && rm -rf public/pre-render"
   },
   "devDependencies": {
     "@types/jasmine": "^2.8.17",
@@ -47,6 +47,7 @@
     "xss": "^1.0.8",
     "html-webpack-plugin": "^4.5.2",
     "fyord": "0.0.6",
-    "fs-extra": "^9.1.0"
+    "fs-extra": "^9.1.0",
+    "fyord-cli": "0.0.1"
   }
 }
