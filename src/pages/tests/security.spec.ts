@@ -4,7 +4,7 @@ import { SecurityPage } from '../security';
 
 describe('SecurityPage', () => {
   let classUnderTest: SecurityPage;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
 
   beforeEach(() => {
     classUnderTest = new SecurityPage(

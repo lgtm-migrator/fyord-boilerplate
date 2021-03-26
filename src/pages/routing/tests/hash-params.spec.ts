@@ -4,7 +4,7 @@ import { HashParamsPage } from '../hash-params';
 
 describe('HashParamsPage', () => {
   let classUnderTest: HashParamsPage;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
 
   beforeEach(() => {
     classUnderTest = new HashParamsPage(

@@ -3,7 +3,7 @@ import { NotFoundPage } from './not-found';
 
 describe('NotFoundPage', () => {
   let classUnderTest: NotFoundPage;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
 
   beforeEach(() => {
     classUnderTest = new NotFoundPage(

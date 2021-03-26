@@ -7,7 +7,7 @@ import { LoadingHttpRequestPage } from '../loading-http-request';
 
 describe('SyncHttpRequestPage', () => {
   let classUnderTest: LoadingHttpRequestPage;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
   const mockHttpClient = new Mock<HttpClient>();
   const jokeValue = 'funny joke lol';
 
