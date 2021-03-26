@@ -1,10 +1,10 @@
 {
-  "name": "fyord",
+  "name": "fyord-boilerplate",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "private": true,
-  "author": "Joseph Bayes",
+  "author": "Fyord",
   "license": "ISC",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
