@@ -35,6 +35,26 @@
 			""
 		]
 	},
+	"Component Spec": {
+		"scope": "typescript,typescriptreact",
+		"prefix": "fy-spec-component",
+		"body": [
+			"import { $1 } from './$2';",
+			"",
+			"describe('$1', () => {",
+				"\tlet classUnderTest: $1;",
+			"",
+				"\tbeforeEach(() => {",
+					"\t\tclassUnderTest = new $1();$0",
+				"\t});",
+			"",
+				"\tit('should construct', () => {",
+					"\t\texpect(classUnderTest).toBeDefined();",
+				"\t});",
+			"});",
+			""
+		]
+	},
 	"Page Spec": {
 		"scope": "typescript,typescriptreact",
 		"prefix": "fy-spec-page",
