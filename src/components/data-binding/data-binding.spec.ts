@@ -3,7 +3,7 @@ import { DataBindingComponent, Keys } from './data-binding';
 
 describe('DataBindingComponent', () => {
   let classUnderTest: DataBindingComponent;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
 
   beforeEach(() => {
     classUnderTest = new DataBindingComponent(

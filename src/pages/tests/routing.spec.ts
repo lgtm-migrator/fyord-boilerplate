@@ -4,7 +4,7 @@ import { RoutingPage } from '../routing';
 
 describe('RoutingPage', () => {
   let classUnderTest: RoutingPage;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
 
   beforeEach(() => {
     classUnderTest = new RoutingPage(

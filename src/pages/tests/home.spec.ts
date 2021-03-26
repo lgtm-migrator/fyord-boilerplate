@@ -4,7 +4,7 @@ import { Routes } from '../routes';
 
 describe('HomePage', () => {
   let classUnderTest: HomePage;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
 
   beforeEach(() => {
     classUnderTest = new HomePage(

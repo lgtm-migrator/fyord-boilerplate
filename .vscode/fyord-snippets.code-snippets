@@ -43,7 +43,7 @@
 			"",
 			"describe('$1', () => {",
 				"\tlet classUnderTest: $1$0;",
-				"\tconst pageMocks = TestHelpers.GetPageMocks();",
+				"\tconst pageMocks = TestHelpers.GetComponentMocks();",
 			"",
 				"\tbeforeEach(() => {",
 					"\t\tclassUnderTest = new $1(",

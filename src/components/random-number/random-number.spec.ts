@@ -3,7 +3,7 @@ import { RandomNumberComponent, Keys } from './random-number';
 
 describe('RandomNumberComponent', () => {
   let classUnderTest: RandomNumberComponent;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
 
 
   beforeEach(() => {

@@ -4,7 +4,7 @@ import { RouteParamsPage } from '../route-params';
 
 describe('RouteParamsPage', () => {
   let classUnderTest: RouteParamsPage;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
   const route = { path: Routes.RouteParams, routeParams: ['examples', 'routing', 'route-params', 'one', 'two'] } as Route;
 
   beforeEach(() => {

@@ -6,7 +6,7 @@ import { Routes } from '../routes';
 
 describe('HttpRequestPage', () => {
   let classUnderTest: AwaitedHttpRequestPage;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
   const mockHttpClient = new Mock<HttpClient>();
   const jokeValue = 'funny joke lol';
 

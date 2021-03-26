@@ -4,7 +4,7 @@ import { QueryParamsPage } from '../query-params';
 
 describe('QueryParamsPage', () => {
   let classUnderTest: QueryParamsPage;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
 
   beforeEach(() => {
     classUnderTest = new QueryParamsPage(

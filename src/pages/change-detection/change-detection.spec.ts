@@ -16,7 +16,7 @@ const initialState = {
 
 describe('ChangeDetectionPage', () => {
   let classUnderTest: ChangeDetectionPage;
-  const pageMocks = TestHelpers.GetPageMocks();
+  const pageMocks = TestHelpers.GetComponentMocks();
   const mockStore = new Mock<IEventStore<TestState>>();
   const mockObservable = new Mock<IObservable<TestState>>();
 
