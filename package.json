@@ -13,7 +13,7 @@
     "test": "jest --watch",
     "test-once": "jest --collectCoverage --coverageReporters lcov clover",
     "lint": "eslint src/**/*.ts",
-    "pre-render": "fyord && cp -R public/pre-render/* public/ && rm -rf public/pre-render"
+    "pre-render": "fyord preRender && cp -R public/pre-render/* public/ && rm -rf public/pre-render"
   },
   "devDependencies": {
     "@types/jasmine": "^2.8.17",
