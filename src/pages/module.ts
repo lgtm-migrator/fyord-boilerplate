@@ -1,4 +1,4 @@
-import { HomePage } from './home';
+import { HomePage } from './home/home';
 import { RoutingPage } from './routing';
 import { RouteParamsPage } from './routing/route-params';
 import { QueryParamsPage } from './routing/query-params';

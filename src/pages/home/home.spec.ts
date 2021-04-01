@@ -1,5 +1,5 @@
 import { TestHelpers, Route } from 'fyord';
-import { HomePage } from '../home';
+import { HomePage } from './home';
 import { Routes } from '../routes';
 
 describe('HomePage', () => {
@@ -29,6 +29,6 @@ describe('HomePage', () => {
 
   it('should render an h1', async () => {
     const content = await classUnderTest.Render();
-    expect(content).toContain('<h1>fyord</h1>');
+    expect(content).toContain('<h1>fyord app</h1>');
   });
 });

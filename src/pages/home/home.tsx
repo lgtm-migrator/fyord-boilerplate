@@ -1,13 +1,13 @@
 import { ParseJsx, Page, Route } from 'fyord';
-import { Classes } from '../enums/classes';
-import { Routes } from './routes';
+import { Classes } from '../../enums/classes';
+import { Routes } from '../routes';
 
 export class HomePage extends Page {
-  Title = 'Home';
+  Title = 'fyord app';
   Route = (route: Route) => route.path === Routes.Home;
   Html = async () => {
     return <div>
-      <h1>fyord</h1>
+      <h1>{this.Title}</h1>
       <p>Light-weight framework designed to embrace core competencies</p>
 
       <section>
