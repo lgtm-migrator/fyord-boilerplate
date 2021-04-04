@@ -10,15 +10,13 @@ export enum Keys {
 }
 
 export class ChangeDetectionPage extends Page {
-  private title = 'Change Detection';
+  Title = 'Change Detection';
   private userAge = this.useAppStore<number>(StatePaths.UserAge) as () => number;
 
   Route = (route: Route) => route.path === Routes.ChangeDetection;
   Html = async () => {
-    this.seoService.SetDefaultTags(this.title);
-
     return <div>
-      <h1>{this.title}</h1>
+      <h1>{this.Title}</h1>
 
       <section>
         <h2>App Store</h2>
