@@ -5,13 +5,16 @@ import { DataBindingComponent } from '../../components/data-binding/data-binding
 import { RandomNumberComponent } from '../../components/random-number/random-number';
 
 export enum Keys {
-  Increment = 'increment',
-  Decrement = 'decrement'
+  AgeIncrement = 'ageIncrement',
+  AgeDecrement = 'ageDecrement',
+  CounterIncrement = 'counterIncrement',
+  CounterDecrement = 'counterDecrement'
 }
 
 export class ChangeDetectionPage extends Page {
   private title = 'Change Detection';
-  private userAge = this.useAppStore<number>(StatePaths.UserAge) as () => number;
+  private userAge = this.useAppStore<number>(StatePaths.UserAge);
+  private counter = this.useState<number>('counter', 1);
 
   Route = (route: Route) => route.path === Routes.ChangeDetection;
   Html = async () => {
@@ -28,12 +31,25 @@ export class ChangeDetectionPage extends Page {
         <p>User's Age: <b>{this.userAge()}</b></p>
 
         <div>
-          <button id={this.Ids(Keys.Increment)}>Increment</button>
-          <button id={this.Ids(Keys.Decrement)}>Decrement</button>
+          <button id={this.Ids(Keys.AgeIncrement)}>Increment</button>
+          <button id={this.Ids(Keys.AgeDecrement)}>Decrement</button>
         </div>
 
         <p>*Note how changes here affect the below examples, but their changes are confined. This is because the
         app store example happens to be implemented at the page level and the below are at the component level.</p>
+      </section>
+
+      <section>
+        <h2>Component State</h2>
+        <p>A fyord component has an internal store, like the app store, which allows for similar functionality but
+        at a component level.</p>
+
+        <p>User's Age: <b>{this.counter()}</b></p>
+
+        <div>
+          <button id={this.Ids(Keys.CounterIncrement)}>Increment</button>
+          <button id={this.Ids(Keys.CounterDecrement)}>Decrement</button>
+        </div>
       </section>
 
       <section>
@@ -53,14 +69,19 @@ export class ChangeDetectionPage extends Page {
   }
 
   Behavior = () => {
-    this.addEventListenerToId(
-      this.Ids(Keys.Increment),
-      EventTypes.Click,
-      () => this.app.Store.SetStateAt((this.userAge()) + 1, StatePaths.UserAge));
+    this.setUserAgeBehavior();
+    this.setCounterBehavior();
+  }
 
-    this.addEventListenerToId(
-      this.Ids(Keys.Decrement),
-      EventTypes.Click,
-      () => this.app.Store.SetStateAt((this.userAge()) - 1, StatePaths.UserAge));
+  private setUserAgeBehavior() {
+    const currentAge = this.userAge() || 0;
+    this.addEventListenerToId(this.Ids(Keys.AgeIncrement), EventTypes.Click, () => this.userAge(currentAge + 1));
+    this.addEventListenerToId(this.Ids(Keys.AgeDecrement), EventTypes.Click, () => this.userAge(currentAge - 1));
+  }
+
+  private setCounterBehavior() {
+    const currentCount = this.counter() || 0;
+    this.addEventListenerToId(this.Ids(Keys.CounterIncrement), EventTypes.Click, () => this.counter(currentCount + 1));
+    this.addEventListenerToId(this.Ids(Keys.CounterDecrement), EventTypes.Click, () => this.counter(currentCount - 1));
   }
 }
