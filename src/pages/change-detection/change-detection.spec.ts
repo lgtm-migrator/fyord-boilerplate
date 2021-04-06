@@ -60,9 +60,9 @@ describe('ChangeDetectionPage', () => {
     renderedComponent.innerHTML = await classUnderTest.Render();
     pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Id), renderedComponent);
     const incrementButton = document.createElement('button');
-    pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Ids(Keys.Increment)), incrementButton);
+    pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Ids(Keys.AgeIncrement)), incrementButton);
     const decrementButton = document.createElement('button');
-    pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Ids(Keys.Decrement)), decrementButton);
+    pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Ids(Keys.AgeDecrement)), decrementButton);
 
     classUnderTest.Behavior();
 
