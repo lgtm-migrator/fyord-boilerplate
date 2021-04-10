@@ -18,6 +18,6 @@ export class RandomNumberComponent extends Component {
     this.addEventListenerToId(
       this.Ids(Keys.NewNumberButton),
       EventTypes.Click,
-      () => this.reRender());
+      () => this.ReRender());
   }
 }
