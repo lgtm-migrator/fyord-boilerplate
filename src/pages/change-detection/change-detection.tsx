@@ -1,8 +1,8 @@
 import { ParseJsx, EventTypes, Page, Route } from 'fyord';
-import { StatePaths } from '../../core/state';
 import { Routes } from '../routes';
 import { DataBindingComponent } from '../../components/data-binding/data-binding';
 import { RandomNumberComponent } from '../../components/random-number/random-number';
+import { AppStore, State } from 'fyord/core/decorators/module';
 
 export enum Keys {
   AgeIncrement = 'ageIncrement',
@@ -12,23 +12,23 @@ export enum Keys {
 }
 
 export class ChangeDetectionPage extends Page {
-  private title = 'Change Detection';
-  private userAge = this.useAppStore<number>(StatePaths.UserAge);
-  private counter = this.useState<number>('counter', 1);
+  Title = 'Change Detection';
+  @AppStore private userAge?: number;
+  @State private counter: number = 0;
 
   Route = (route: Route) => route.path === Routes.ChangeDetection;
   Html = async () => {
-    this.seoService.SetDefaultTags(this.title);
+    this.seoService.SetDefaultTags(this.Title);
 
     return <div>
-      <h1>{this.title}</h1>
+      <h1>{this.Title}</h1>
 
       <section>
         <h2>App Store</h2>
         <p>A fyord app's store can be utilized to retrieve current values for initial render, as well as trigger
         a new render when the requested state value changes.</p>
 
-        <p>User's Age: <b>{this.userAge()}</b></p>
+        <p>User's Age: <b>{this.userAge}</b></p>
 
         <div>
           <button id={this.Ids(Keys.AgeIncrement)}>Increment</button>
@@ -44,7 +44,7 @@ export class ChangeDetectionPage extends Page {
         <p>A fyord component has an internal store, like the app store, which allows for similar functionality but
         at a component level.</p>
 
-        <p>User's Age: <b>{this.counter()}</b></p>
+        <p>User's Age: <b>{this.counter}</b></p>
 
         <div>
           <button id={this.Ids(Keys.CounterIncrement)}>Increment</button>
@@ -74,14 +74,14 @@ export class ChangeDetectionPage extends Page {
   }
 
   private setUserAgeBehavior() {
-    const currentAge = this.userAge() || 0;
-    this.addEventListenerToId(this.Ids(Keys.AgeIncrement), EventTypes.Click, () => this.userAge(currentAge + 1));
-    this.addEventListenerToId(this.Ids(Keys.AgeDecrement), EventTypes.Click, () => this.userAge(currentAge - 1));
+    const currentAge = this.userAge || 0;
+    this.addEventListenerToId(this.Ids(Keys.AgeIncrement), EventTypes.Click, () => this.userAge = currentAge + 1);
+    this.addEventListenerToId(this.Ids(Keys.AgeDecrement), EventTypes.Click, () => this.userAge = currentAge - 1);
   }
 
   private setCounterBehavior() {
-    const currentCount = this.counter() || 0;
-    this.addEventListenerToId(this.Ids(Keys.CounterIncrement), EventTypes.Click, () => this.counter(currentCount + 1));
-    this.addEventListenerToId(this.Ids(Keys.CounterDecrement), EventTypes.Click, () => this.counter(currentCount - 1));
+    const currentCount = this.counter || 0;
+    this.addEventListenerToId(this.Ids(Keys.CounterIncrement), EventTypes.Click, () => this.counter = currentCount + 1);
+    this.addEventListenerToId(this.Ids(Keys.CounterDecrement), EventTypes.Click, () => this.counter = currentCount - 1);
   }
 }

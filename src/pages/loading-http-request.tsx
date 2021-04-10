@@ -18,7 +18,7 @@ export class LoadingHttpRequestPage extends Page {
 
     (async () => {
       this.randomJoke = JSON.parse(await this.httpClient.GetStringAsync(chuckNorrisJokeApi)) as ChuckNorrisJoke;
-      this.reRender();
+      this.ReRender();
     })();
   }
 
