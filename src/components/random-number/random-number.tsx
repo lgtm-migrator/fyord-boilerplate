@@ -1,9 +1,5 @@
-import { Component, EventTypes, ParseJsx } from 'fyord';
+import { Component, ParseJsx } from 'fyord';
 import { ArrayFunctions } from 'tsbase/Functions/ArrayFunctions';
-
-export enum Keys {
-  NewNumberButton = 'newNumberButton'
-}
 
 export class RandomNumberComponent extends Component {
   private maxNumber = 100;
@@ -11,13 +7,6 @@ export class RandomNumberComponent extends Component {
 
   Html = async () => <div>
     <p>Random (1-{this.maxNumber}) number is: <b>{ArrayFunctions.Shuffle(this.numbers)[0]}</b></p>
-    <button id={this.Ids(Keys.NewNumberButton)}>New Random Number</button>
+    <button onclick={() => this.ReRender()}>New Random Number</button>
   </div>;
-
-  Behavior = () => {
-    this.addEventListenerToId(
-      this.Ids(Keys.NewNumberButton),
-      EventTypes.Click,
-      () => this.ReRender());
-  }
 }

@@ -1,4 +1,4 @@
-import { Component, EventTypes, ParseJsx } from 'fyord';
+import { Component, ParseJsx } from 'fyord';
 
 export enum Keys {
   Input = 'inputValue',
@@ -7,18 +7,14 @@ export enum Keys {
 
 export class DataBindingComponent extends Component {
   private initialValue = 'change me';
+  private get outputLabel(): HTMLParagraphElement {
+    return this.windowDocument.getElementById(this.Ids(Keys.Output)) as HTMLParagraphElement;
+  }
 
   Html = async () => <div>
-    <input id={this.Ids(Keys.Input)} type="text" value={this.initialValue}></input>
+    <input type="text" id={this.Ids(Keys.Input)} value={this.initialValue}
+      oninput={() => this.outputLabel.innerHTML = this.getInputValue(this.Ids(Keys.Input))}>
+    </input>
     <p id={this.Ids(Keys.Output)}>{this.initialValue}</p>
   </div>;
-
-  Behavior = () => {
-    const outputLabel = this.windowDocument.getElementById(this.Ids(Keys.Output)) as HTMLInputElement;
-
-    this.addEventListenerToId(
-      this.Ids(Keys.Input),
-      EventTypes.Input,
-      () => outputLabel.innerHTML = this.getInputValue(this.Ids(Keys.Input)));
-  }
 }

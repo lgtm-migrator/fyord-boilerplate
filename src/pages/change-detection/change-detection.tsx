@@ -1,4 +1,4 @@
-import { ParseJsx, EventTypes, Page, Route } from 'fyord';
+import { ParseJsx, Page, Route } from 'fyord';
 import { Routes } from '../routes';
 import { DataBindingComponent } from '../../components/data-binding/data-binding';
 import { RandomNumberComponent } from '../../components/random-number/random-number';
@@ -13,7 +13,7 @@ export enum Keys {
 
 export class ChangeDetectionPage extends Page {
   Title = 'Change Detection';
-  @AppStore private userAge?: number;
+  @AppStore private userAge: number = 0;
   @State private counter: number = 0;
 
   Route = (route: Route) => route.path === Routes.ChangeDetection;
@@ -31,8 +31,8 @@ export class ChangeDetectionPage extends Page {
         <p>User's Age: <b>{this.userAge}</b></p>
 
         <div>
-          <button id={this.Ids(Keys.AgeIncrement)}>Increment</button>
-          <button id={this.Ids(Keys.AgeDecrement)}>Decrement</button>
+          <button id={this.Ids(Keys.AgeIncrement)} onclick={() => this.userAge += 1}>Increment</button>
+          <button id={this.Ids(Keys.AgeDecrement)} onclick={() => this.userAge -= 1}>Decrement</button>
         </div>
 
         <p>*Note how changes here affect the below examples, but their changes are confined. This is because the
@@ -47,8 +47,8 @@ export class ChangeDetectionPage extends Page {
         <p>User's Age: <b>{this.counter}</b></p>
 
         <div>
-          <button id={this.Ids(Keys.CounterIncrement)}>Increment</button>
-          <button id={this.Ids(Keys.CounterDecrement)}>Decrement</button>
+          <button onclick={() => this.counter += 1}>Increment</button>
+          <button onclick={() => this.counter -= 1}>Decrement</button>
         </div>
       </section>
 
@@ -66,22 +66,5 @@ export class ChangeDetectionPage extends Page {
         {await new RandomNumberComponent().Render()}
       </section>
     </div>;
-  }
-
-  Behavior = () => {
-    this.setUserAgeBehavior();
-    this.setCounterBehavior();
-  }
-
-  private setUserAgeBehavior() {
-    const currentAge = this.userAge || 0;
-    this.addEventListenerToId(this.Ids(Keys.AgeIncrement), EventTypes.Click, () => this.userAge = currentAge + 1);
-    this.addEventListenerToId(this.Ids(Keys.AgeDecrement), EventTypes.Click, () => this.userAge = currentAge - 1);
-  }
-
-  private setCounterBehavior() {
-    const currentCount = this.counter || 0;
-    this.addEventListenerToId(this.Ids(Keys.CounterIncrement), EventTypes.Click, () => this.counter = currentCount + 1);
-    this.addEventListenerToId(this.Ids(Keys.CounterDecrement), EventTypes.Click, () => this.counter = currentCount - 1);
   }
 }

@@ -21,6 +21,7 @@ describe('ChangeDetectionPage', () => {
   const mockObservable = new Mock<IObservable<TestState>>();
 
   beforeEach(() => {
+    mockStore.Setup(s => s.SetStateAt(0, Strings.Empty));
     mockObservable.Setup(o => o.Subscribe(() => null));
     mockStore.Setup(s => s.GetStateAt(Strings.Empty), initialState.userAge);
     mockStore.Setup(s => s.ObservableAt(Strings.Empty), mockObservable.Object);
@@ -56,17 +57,13 @@ describe('ChangeDetectionPage', () => {
 
   it('should have appropriate behavior', async () => {
     mockStore.Setup(s => s.SetStateAt(0, Strings.Empty));
-    const renderedComponent = document.createElement('div');
-    renderedComponent.innerHTML = await classUnderTest.Render();
-    pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Id), renderedComponent);
-    const incrementButton = document.createElement('button');
-    pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Ids(Keys.AgeIncrement)), incrementButton);
-    const decrementButton = document.createElement('button');
-    pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Ids(Keys.AgeDecrement)), decrementButton);
-
+    document.body.innerHTML = await classUnderTest.Render();
     classUnderTest.Behavior();
 
     setTimeout(() => {
+      const incrementButton = document.getElementById(classUnderTest.Ids(Keys.AgeIncrement)) as HTMLButtonElement;
+      const decrementButton = document.getElementById(classUnderTest.Ids(Keys.AgeDecrement)) as HTMLButtonElement;
+
       incrementButton.click();
       decrementButton.click();
     });
@@ -74,6 +71,7 @@ describe('ChangeDetectionPage', () => {
     const behaviorExpectationsMet = await TestHelpers.TimeLapsedCondition(() => {
       return mockStore.TimesMemberCalled(s => s.SetStateAt(0, Strings.Empty)) === 2;
     });
+
     expect(behaviorExpectationsMet).toBeTruthy();
   });
 });

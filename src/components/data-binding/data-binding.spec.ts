@@ -3,37 +3,29 @@ import { DataBindingComponent, Keys } from './data-binding';
 
 describe('DataBindingComponent', () => {
   let classUnderTest: DataBindingComponent;
-  const pageMocks = TestHelpers.GetComponentMocks();
 
   beforeEach(() => {
-    classUnderTest = new DataBindingComponent(
-      false,
-      pageMocks.mockDocument.Object,
-      pageMocks.mockApp.Object);
+    classUnderTest = new DataBindingComponent(false);
   });
 
   it('should construct', () => {
     expect(classUnderTest).toBeDefined();
   });
 
-  it('should add input event listener to input element', async () => {
-    spyOn(window, 'alert');
-    const renderedComponent = document.createElement('div');
-    renderedComponent.innerHTML = await classUnderTest.Render();
-    const inputElement = document.createElement('input');
-    const outputElement = document.createElement('p');
-    pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Id), renderedComponent);
-    pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Ids(Keys.Input)), inputElement);
-    pageMocks.mockDocument.Setup(d => d.getElementById(classUnderTest.Ids(Keys.Output)), outputElement);
-
+  it('should have appropriate behavior', async () => {
+    document.body.innerHTML = await classUnderTest.Render();
     classUnderTest.Behavior();
 
     setTimeout(() => {
-      inputElement.value = 'a';
-      TestHelpers.EmitKeyEventAtElement(inputElement, 'a', EventTypes.Input);
+      const input = document.getElementById(classUnderTest.Ids(Keys.Input)) as HTMLInputElement;
+      input.value = 'a';
+      TestHelpers.EmitKeyEventAtElement(input, 'a', EventTypes.Input);
     });
 
-    const outputUpdatedToInput = await TestHelpers.TimeLapsedCondition(() => outputElement.innerHTML === 'a');
-    expect(outputUpdatedToInput).toBeTruthy();
+    const outputUpdatedToInputOnInput = await TestHelpers.TimeLapsedCondition(() => {
+      return classUnderTest['outputLabel'].innerHTML === 'a';
+    });
+
+    expect(outputUpdatedToInputOnInput).toBeTruthy();
   });
 });
