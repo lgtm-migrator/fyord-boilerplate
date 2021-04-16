@@ -20,7 +20,10 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'src/wwwroot' }
+        {
+          from: 'src/wwwroot',
+          noErrorOnMissing: true
+        }
       ]
     }),
     new MiniCssExtractPlugin({
