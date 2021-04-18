@@ -12,7 +12,7 @@
     "start-prod": "webpack serve --config webpack.prod.js",
     "test": "jest --watch",
     "test-once": "jest --passWithNoTests --collectCoverage --coverageReporters lcov clover",
-    "lint": "eslint src/**/*.ts",
+    "lint": "eslint src/**/*.ts && eslint src/**/*.tsx",
     "pre-render": "fyord prerender && cp -R public/pre-render/* public/ && rm -rf public/pre-render"
   },
   "devDependencies": {
