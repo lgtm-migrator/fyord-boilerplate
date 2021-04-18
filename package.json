@@ -5,15 +5,15 @@
   "main": "index.js",
   "private": true,
   "author": "Fyord",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --config webpack.dev.js",
     "start-prod": "webpack serve --config webpack.prod.js",
     "test": "jest --watch",
-    "test-once": "jest --collectCoverage --coverageReporters lcov clover",
+    "test-once": "jest --passWithNoTests --collectCoverage --coverageReporters lcov clover",
     "lint": "eslint src/**/*.ts",
-    "pre-render": "fyord preRender && cp -R public/pre-render/* public/ && rm -rf public/pre-render"
+    "pre-render": "fyord prerender && cp -R public/pre-render/* public/ && rm -rf public/pre-render"
   },
   "devDependencies": {
     "@types/jasmine": "^2.8.17",
@@ -26,6 +26,9 @@
     "core-js": "^2.6.5",
     "css-loader": "^5.1.2",
     "eslint": "^6.8.0",
+    "fyord": "0.0.15",
+    "fyord-cli": "0.0.22",
+    "html-webpack-plugin": "^4.5.2",
     "identity-obj-proxy": "^3.0.0",
     "jasmine-core": "^2.5.2",
     "jest": "^26.6.3",
@@ -44,13 +47,9 @@
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^4.2.2",
-    "xss": "^1.0.8",
-    "html-webpack-plugin": "^4.5.2",
-    "fyord": "../fyord/dist",
-    "fs-extra": "^9.1.0",
-    "fyord-cli": "../fyord-cli/dist"
+    "xss": "^1.0.8"
   },
-  "bin": {
-    "fyord": "./node_modules/fyord-cli/index.js"
+  "dependencies": {
+    "file-loader": "^6.2.0"
   }
 }

@@ -20,7 +20,10 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'src/wwwroot' }
+        {
+          from: 'src/wwwroot',
+          noErrorOnMissing: true
+        }
       ]
     }),
     new MiniCssExtractPlugin({
@@ -31,32 +34,43 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
       },
       {
-        test: /\.module\.s(a|c)ss$/,
+        test: /\.module\.(sa|sc|c)ss$/,
         loader: [
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
               modules: true,
-              sourceMap: false
+              sourceMap: false,
             }
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: false
+              sourceMap: false,
+              sassOptions: {
+                publicPath: './src/wwwroot'
+              }
             }
           }
         ]
       },
       {
-        test: /\.s(a|c)ss$/,
-        exclude: /\.module.(s(a|c)ss)$/,
+        test: /\.(sa|sc|c)ss$/,
+        exclude: /\.module.(sa|sc|c)ss$/,
         loader: [
           MiniCssExtractPlugin.loader,
           'css-loader',
