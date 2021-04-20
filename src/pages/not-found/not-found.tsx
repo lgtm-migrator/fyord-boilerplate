@@ -7,7 +7,7 @@ export class NotFoundPage extends Page {
   RenderMode = RenderModes.Dynamic;
   Route = () => true;
 
-  Html = async (route?: Route) => {
+  Template = async (route?: Route) => {
     return <div>
       <h1 class={styles.red}>{this.Title}</h1>
 

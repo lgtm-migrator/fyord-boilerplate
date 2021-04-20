@@ -28,7 +28,7 @@ describe('NotFoundPage', () => {
     const route = { path: 'fake%20page' } as Route;
     const expected = 'fake page';
 
-    const htmlString = JSON.stringify(await classUnderTest.Html(route));
+    const htmlString = JSON.stringify(await classUnderTest.Template(route));
 
     expect(htmlString).toContain(expected);
   });
