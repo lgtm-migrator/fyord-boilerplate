@@ -1,6 +1,8 @@
 # fyord boilerplate
 Boilerplate project using the fyord framework
 
+[Code of conduct](https://github.com/Fyord/fyord/blob/main/CODE_OF_CONDUCT.md)
+
 ## Installation / Local Development
 - `npm i`
 - `npm start`
