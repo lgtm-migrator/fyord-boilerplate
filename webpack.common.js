@@ -37,9 +37,9 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: 'file-loader',
-          },
-        ],
+            loader: 'file-loader'
+          }
+        ]
       },
       {
         test: /\.tsx?$/,
@@ -53,8 +53,12 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              sourceMap: false,
+              modules: {
+                compileType: 'module',
+                exportGlobals: true,
+                localIdentName: '[local]--[hash:base64:5]'
+              },
+              sourceMap: false
             }
           },
           {
