@@ -1,5 +1,5 @@
 import { ParseJsx, Page, RenderModes, Route } from 'fyord';
-import styles from './not-found.module.scss';
+import styles from './not-found.module.css';
 
 export class NotFoundPage extends Page {
   Title = 'Not Found';
