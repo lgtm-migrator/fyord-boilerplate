@@ -13,14 +13,8 @@ Boilerplate project using the fyord framework
 - `npm run test-once` - code coverage collected
 
 ## Build
-### Production build without pre-render
 - `npm run build`
-
-### With pre-render
-- `npm run start-prod` - will serve a production build
-- `npm run pre-render` - in a separate terminal
-  - Uses Puppeteer to render and crawl your app. Html files are created for each page.  JSON and XML sitemaps are also generated.
-
+- `npm run pre-render` (optional)
 
 ## Deployment
 Use either of the build strategies above, and deploy the `./public` directory.
