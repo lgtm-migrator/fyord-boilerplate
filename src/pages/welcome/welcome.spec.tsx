@@ -1,5 +1,5 @@
 import { WelcomePage } from './welcome';
-import { TestHelpers } from 'fyord';
+import { Asap, TestHelpers } from 'fyord';
 
 describe('WelcomePage', () => {
   let classUnderTest: WelcomePage;
@@ -19,7 +19,7 @@ describe('WelcomePage', () => {
   it('should have appropriate behavior', async () => {
     document.body.innerHTML = await classUnderTest.Render();
 
-    setTimeout(() => {
+    Asap(() => {
       // fire any attached events
     });
 
