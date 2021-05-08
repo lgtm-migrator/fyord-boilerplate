@@ -5,7 +5,7 @@ export class NotFoundPage extends Page {
   Title = 'Not Found';
 
   RenderMode = RenderModes.Dynamic;
-  Route = () => true;
+  Route = async () => true;
 
   Template = async (route?: Route) => {
     return <div>
