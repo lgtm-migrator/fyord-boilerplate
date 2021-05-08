@@ -8,7 +8,7 @@ const githubIcon = <svg class="octicon octicon-mark-github v-align-middle" width
 
 export class WelcomePage extends Page {
   Title = 'Welcome!';
-  Route = (route: Route) => route.path === '/';
+  Route = async (route: Route) => route.path === '/';
   Template = async () => {
     return <div class={styles.welcome}>
       <header>
