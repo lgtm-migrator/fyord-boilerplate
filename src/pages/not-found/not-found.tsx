@@ -11,7 +11,7 @@ export class NotFoundPage extends Page {
     return <div>
       <h1 class={styles.red}>{this.Title}</h1>
 
-      <p>Could not find content matching, {decodeURI(route?.path || '')}"</p>
+      <p>Could not find content matching, "{decodeURI(route?.path || '')}"</p>
       <p>Please check spelling. Otherwise the resource may have been moved.</p>
     </div>;
   }
