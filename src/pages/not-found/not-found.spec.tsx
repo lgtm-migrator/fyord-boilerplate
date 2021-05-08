@@ -16,8 +16,8 @@ describe('NotFoundPage', () => {
     expect(classUnderTest).toBeDefined();
   });
 
-  it('should always return true for route matches', () => {
-    expect(classUnderTest.Route()).toBeTruthy();
+  it('should always return true for route matches', async () => {
+    expect(await classUnderTest.Route()).toBeTruthy();
   });
 
   it('should render', async () => {
