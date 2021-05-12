@@ -1,5 +1,5 @@
 import { App, Environments } from 'fyord';
-import { defaultLayout } from './core/module';
+import { defaultLayout } from './layouts';
 
 import './styles/base.css';
 import './pages/module';
