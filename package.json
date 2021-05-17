@@ -25,7 +25,7 @@
     "core-js": "^2.6.5",
     "css-loader": "^5.2.4",
     "eslint": "^6.8.0",
-    "fyord": "0.0.37",
+    "fyord": "0.0.38",
     "fyord-cli": "0.0.38",
     "html-webpack-plugin": "^4.5.2",
     "identity-obj-proxy": "^3.0.0",
