@@ -3,7 +3,7 @@
   "short_name": "fyord",
   "lang": "en-US",
   "start_url": "/",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#1F1750",
   "theme_color": "#1F1750",
   "prefer_related_applications": false,
