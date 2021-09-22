@@ -1,6 +1,6 @@
 {
   "name": "fyord app",
-  "short_name": "fyord",
+  "short_name": "fyord app",
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",
