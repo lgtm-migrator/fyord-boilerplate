@@ -1,3 +1,5 @@
-import { ParseJsx } from 'fyord';
+import { Jsx, ParseJsx, Fragment } from 'fyord';
 
-export const defaultLayout = async () => <main></main>;
+export const defaultLayout = async (): Promise<Jsx> => <>
+  <main></main>
+</>;
