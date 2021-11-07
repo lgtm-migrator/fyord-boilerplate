@@ -8,14 +8,14 @@ const githubIcon = <svg class="octicon octicon-mark-github v-align-middle" width
 
 export class WelcomePage extends Page {
   Title = 'Welcome!';
-  Route = async (route: Route) => route.path === '/';
+  Route = async (route: Route) => route.path === document.baseURI.split(location.origin)[1];
   Template = async () => {
     return <div class={styles.welcome}>
       <header>
         <div>
           {fyordIcon}
           <h1>Welcome to Fyord</h1>
-          <p>For a quick overview, vist <a href="http://fyord.dev">fyord.dev</a></p>
+          <p>For a quick overview, visit <a href="http://fyord.dev">fyord.dev</a></p>
         </div>
       </header>
 
