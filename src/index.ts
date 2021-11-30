@@ -1,10 +1,9 @@
-import { App, Environments } from 'fyord';
+import { app } from './app';
 import { defaultLayout } from './layouts';
-
+import './pages/module';
 import './styles/base.css';
 
 (async () => {
-  const app = App.Instance(process.env.NODE_ENV || Environments.Production);
   await app.Start(defaultLayout);
 
   if (navigator.serviceWorker) {
@@ -12,5 +11,3 @@ import './styles/base.css';
       '/service-worker.js', { scope: '/' });
   }
 })();
-
-import './pages/module';
