@@ -11,7 +11,8 @@
     "start": "webpack serve --config webpack.dev.js",
     "test": "jest --watch",
     "test-once": "jest --passWithNoTests --collectCoverage --coverageReporters lcov clover",
-    "lint": "eslint src/**/*.ts && eslint src/**/*.tsx",
+    "lint": "eslint ./src --ext .ts,.tsx",
+		"lint-fix": "eslint ./src --ext .ts,.tsx --fix",
     "pre-render": "fyord prerender && cp -R public/pre-render/* public/ && rm -rf public/pre-render"
   },
   "devDependencies": {
