@@ -25,6 +25,7 @@
     },
     "jsx": "react",
     "jsxFactory": "ParseJsx",
-    "jsxFragmentFactory": "Fragment"
+    "jsxFragmentFactory": "Fragment",
+    "forceConsistentCasingInFileNames": true
   }
 }
