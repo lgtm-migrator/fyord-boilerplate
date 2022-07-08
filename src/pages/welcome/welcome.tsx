@@ -1,4 +1,5 @@
 import { ParseJsx, Page, Route } from 'fyord';
+import { Routes } from '../../routes';
 import styles from './welcome.module.css';
 
 /* eslint-disable max-len */
@@ -14,8 +15,8 @@ export class WelcomePage extends Page {
       <header>
         <div>
           {fyordIcon}
-          <h1>Welcome to Fyord</h1>
-          <p>For a quick overview, visit <a href="http://fyord.dev">fyord.dev</a></p>
+          <h1>Welcome to Fyord - Firebase CMS</h1>
+          <p><a href={Routes.Login}>Login</a> to access CRUD functionality</p>
         </div>
       </header>
 
