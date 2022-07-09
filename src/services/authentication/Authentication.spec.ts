@@ -8,18 +8,18 @@ import { Strings } from 'tsbase/System/Strings';
 import { IGenericStorage } from 'tsbase/Persistence/GenericStorage/module';
 import { IRouter } from 'fyord';
 import { Constants } from '../../constants';
-import { AuthenticationService, IAuthenticationService } from './AuthenticationService';
+import { Authentication, IAuthentication } from './Authentication';
 import { FirebaseLoginResponse } from './models/FirebaseLoginResponse';
 import { FirebaseRefreshResponse } from './models/FirebaseRefreshResponse';
 
-describe('AuthenticationService', () => {
+describe('Authentication', () => {
   const mockHttpClient = new Mock<HttpClient>();
   const mockSerializer = new Mock<ISerializer>();
   const mockRouter = new Mock<IRouter>();
   const mockSessionStorage = new Mock<IGenericStorage>();
   const mockTimer = new Mock<ITimer>();
 
-  let classUnderTest: IAuthenticationService;
+  let classUnderTest: IAuthentication;
 
   const loginRequest = { email: 'email', password: 'password', returnSecureToken: true };
   const refreshRequest = { grant_type: 'refresh_token', refresh_token: 'testToken' };
@@ -39,9 +39,9 @@ describe('AuthenticationService', () => {
   }
 
   function resetClassUnderTest(): void {
-    AuthenticationService.Destroy();
+    Authentication.Destroy();
 
-    classUnderTest = AuthenticationService.Instance(
+    classUnderTest = Authentication.Instance(
       mockHttpClient.Object,
       mockSerializer.Object,
       mockRouter.Object,
@@ -64,7 +64,7 @@ describe('AuthenticationService', () => {
 
   it('should construct', () => {
     resetClassUnderTest();
-    AuthenticationService.Instance(mockHttpClient.Object);
+    Authentication.Instance(mockHttpClient.Object);
     expect(classUnderTest).toBeDefined();
   });
 

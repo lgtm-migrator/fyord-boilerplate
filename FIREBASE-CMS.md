@@ -5,12 +5,12 @@ Heavily based on previous work with tsbase-components and our cms branch on the 
 ## File structure needed to migrate tsbase-boilerplate cms work
 
 - src
-  - [ ] services
+  - [x] services
     - [x] authentication
     - [x] contentRepository
-    - formInput
-  - models
-    - dataModels
+    - [x] formInput
+  - [x] models
+    - [x] Content
   - pages
     - default
     - [x] login

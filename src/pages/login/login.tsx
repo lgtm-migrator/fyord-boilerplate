@@ -1,6 +1,6 @@
 import { App, IRouter, Page, ParseJsx, Route, Router, SeoService, Fragment, Reference, State } from 'fyord';
 import { Routes } from '../../routes';
-import { AuthenticationService, IAuthenticationService } from '../../services/authentication/AuthenticationService';
+import { Authentication, IAuthentication } from '../../services/authentication/Authentication';
 import { FirebaseLoginResponse } from '../../services/authentication/models/FirebaseLoginResponse';
 import styles from './login.module.css';
 
@@ -16,7 +16,7 @@ export class Login extends Page {
   constructor(
     seoService = SeoService.Instance,
     app = App.Instance(),
-    private authenticationService: IAuthenticationService = AuthenticationService.Instance(),
+    private authenticationService: IAuthentication = Authentication.Instance(),
     private router: IRouter = Router.Instance()
   ) {
     super(seoService, app);

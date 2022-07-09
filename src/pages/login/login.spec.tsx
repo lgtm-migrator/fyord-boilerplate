@@ -1,13 +1,13 @@
 import { RenderModes, Route, TestHelpers, Asap, IRouter } from 'fyord';
 import { Mock } from 'tsmockit';
-import { IAuthenticationService } from '../../services/authentication/AuthenticationService';
+import { IAuthentication } from '../../services/authentication/Authentication';
 import { Login } from './login';
 
 describe('Login', () => {
   let classUnderTest: Login;
   const pageMocks = TestHelpers.GetComponentMocks();
   const mockRouter = new Mock<IRouter>();
-  const mockAuthenticationService = new Mock<IAuthenticationService>();
+  const mockAuthenticationService = new Mock<IAuthentication>();
 
 
   beforeEach(() => {

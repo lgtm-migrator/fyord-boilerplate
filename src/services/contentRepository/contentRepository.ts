@@ -5,9 +5,9 @@ import { IHttpClient, RestResponse } from 'tsbase/Net/Http/IHttpClient';
 import { GenericResult } from 'tsbase/Patterns/Result/GenericResult';
 import { ISerializer } from 'tsbase/Utility/Serialization/ISerializer';
 import { JsonSerializer } from 'tsbase/Utility/Serialization/JsonSerializer';
-import { AuthenticationService, IAuthenticationService } from '../authentication/AuthenticationService';
 import { Strings } from 'tsbase/System/Strings';
 import { Result } from 'tsbase/Patterns/Result/Result';
+import { Authentication, IAuthentication } from '../authentication/Authentication';
 import { Constants } from '../../constants';
 import { FirebaseLoginResponse } from '../authentication/models/FirebaseLoginResponse';
 
@@ -22,7 +22,7 @@ export class ContentRepository implements IContentRepository {
   public static Instance(
     httpClient: IHttpClient = new HttpClient(),
     serializer: ISerializer = new JsonSerializer(),
-    authenticationService = AuthenticationService.Instance()
+    authenticationService = Authentication.Instance()
   ): ContentRepository {
     if (!this.instance) {
       this.instance = new ContentRepository(httpClient, serializer, authenticationService);
@@ -38,7 +38,7 @@ export class ContentRepository implements IContentRepository {
   private constructor(
     private httpClient: IHttpClient,
     private serializer: ISerializer,
-    private authenticationService: IAuthenticationService
+    private authenticationService: IAuthentication
   ) { }
 
   public async Get<T>(t: new () => T, path: string): Promise<GenericResult<T>> {

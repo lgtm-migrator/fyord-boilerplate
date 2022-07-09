@@ -1,7 +1,7 @@
 import { Mock, Times } from 'tsmockit';
 import { HttpClient } from 'tsbase/Net/Http/HttpClient';
 import { ISerializer } from 'tsbase/Utility/Serialization/ISerializer';
-import { IAuthenticationService } from '../authentication/AuthenticationService';
+import { IAuthentication } from '../authentication/Authentication';
 import { ContentRepository, IContentRepository } from './contentRepository';
 import { FirebaseLoginResponse } from '../authentication/models/FirebaseLoginResponse';
 import { Strings } from 'tsbase/System/Strings';
@@ -18,7 +18,7 @@ const testJsonContent = '{\
 describe('ContentRepository', () => {
   const mockHttpClient = new Mock<HttpClient>();
   const mockSerializer = new Mock<ISerializer>();
-  const mockAuthenticationService = new Mock<IAuthenticationService>();
+  const mockAuthenticationService = new Mock<IAuthentication>();
   let classUnderTest: IContentRepository;
 
   const session = new FirebaseLoginResponse();

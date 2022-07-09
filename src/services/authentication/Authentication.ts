@@ -10,7 +10,7 @@ import { FirebaseLoginResponse } from './models/FirebaseLoginResponse';
 import { Constants } from '../../constants';
 import { FirebaseRefreshResponse } from './models/FirebaseRefreshResponse';
 
-export interface IAuthenticationService {
+export interface IAuthentication {
   Session: FirebaseLoginResponse | null;
   Login(email: string, password: string): Promise<GenericResult<FirebaseLoginResponse>>;
   RefreshSession(force: boolean): Promise<GenericResult<FirebaseRefreshResponse>>;
@@ -18,8 +18,8 @@ export interface IAuthenticationService {
   RedirectWhenUnAuthenticated(redirectPath: string): void;
 }
 
-export class AuthenticationService implements IAuthenticationService {
-  private static instance: IAuthenticationService | null = null;
+export class Authentication implements IAuthentication {
+  private static instance: IAuthentication | null = null;
   // eslint-disable-next-line max-params
   public static Instance(
     client: HttpClient = new HttpClient(),
@@ -28,9 +28,9 @@ export class AuthenticationService implements IAuthenticationService {
     sessionStorage: IGenericStorage = new DomStorage(DomStorageMode.Session),
     sessionTimeoutTimer: ITimer = new Timer(),
     reloadPageFunction: Function = () => location.reload()
-  ): IAuthenticationService {
+  ): IAuthentication {
     if (!this.instance) {
-      this.instance = new AuthenticationService(
+      this.instance = new Authentication(
         client, serializer, router, sessionStorage, sessionTimeoutTimer, reloadPageFunction);
     }
     return this.instance;
