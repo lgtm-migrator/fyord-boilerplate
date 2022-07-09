@@ -26,6 +26,6 @@ Heavily based on previous work with tsbase-components and our cms branch on the 
         - objectArray
     - [x] contentList
   - components
-    - editableContent
+    - [-] editableContent
     - [x] crudButton
     - quill
