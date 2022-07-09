@@ -24,7 +24,7 @@ Heavily based on previous work with tsbase-components and our cms branch on the 
         - select
         - object
         - objectArray
-    - contentList
+    - [x] contentList
   - components
     - editableContent
     - crudButton
