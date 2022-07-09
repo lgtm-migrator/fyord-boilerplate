@@ -1,6 +1,7 @@
 import { Page, ParseJsx, Route, Fragment, SeoService, App } from 'fyord';
-import { CrudTypes, Models } from '../../enums/module';
-import { Content } from '../../models/module';
+import { CrudButton } from '../../components/module';
+import { CrudTypes } from '../../enums/module';
+import { Content, Models } from '../../models/module';
 import { Authentication, IAuthentication } from '../../services/authentication/Authentication';
 import { IContentRepository, ContentRepository } from '../../services/contentRepository/contentRepository';
 import styles from './default.module.css';
@@ -40,6 +41,10 @@ export class Default extends Page {
     return <div class={styles.container}>
       {this.content && this.contentValid ?
         <>
+          <div>
+            {await (<CrudButton model={Models.Content} type={CrudTypes.Update} />)}
+            {await (<CrudButton model={Models.Content} type={CrudTypes.Delete} />)}
+          </div>
           <p>{JSON.stringify(this.content)}</p>
         </> :
         <>

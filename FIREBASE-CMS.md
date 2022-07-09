@@ -12,7 +12,7 @@ Heavily based on previous work with tsbase-components and our cms branch on the 
   - [x] models
     - [x] Content
   - pages
-    - default
+    - [-] default
     - [x] login
     - crudForm
       - inputs
@@ -27,5 +27,5 @@ Heavily based on previous work with tsbase-components and our cms branch on the 
     - [x] contentList
   - components
     - editableContent
-    - crudButton
+    - [x] crudButton
     - quill
