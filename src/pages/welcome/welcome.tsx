@@ -17,11 +17,12 @@ export class WelcomePage extends Page {
           {fyordIcon}
           <h1>Welcome to Fyord - Firebase CMS</h1>
           <p><a href={Routes.Login}>Login</a> to access CRUD functionality</p>
+          <p>View all content <a href={Routes.Content}>here</a>.</p>
         </div>
       </header>
 
       <footer>
-        <a href="https://github.com/Fyord/fyord" target="_blank" title="Fork Fyord on GitHub!">
+        <a rel="noopener" href="https://github.com/Fyord/fyord" target="_blank" title="Fork Fyord on GitHub!">
           {githubIcon}
         </a>
       </footer>
