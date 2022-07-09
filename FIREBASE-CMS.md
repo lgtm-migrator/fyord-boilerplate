@@ -7,7 +7,7 @@ Heavily based on previous work with tsbase-components and our cms branch on the 
 - src
   - [ ] services
     - [x] authentication
-    - contentRepository
+    - [x] contentRepository
     - formInput
   - models
     - dataModels
