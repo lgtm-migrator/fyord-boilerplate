@@ -28,4 +28,4 @@ Heavily based on previous work with tsbase-components and our cms branch on the 
   - components
     - [-] editableContent
     - [x] crudButton
-    - quill
+    - [-] quill
