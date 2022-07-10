@@ -7,6 +7,7 @@ import { ModelRecord, Models } from '../../models/module';
 import { Authentication } from '../../services/authentication/Authentication';
 import { ContentRepository } from '../../services/contentRepository/contentRepository';
 import { Icons } from '../crudButton/icons';
+import { Quill } from '../module';
 import styles from './editableContent.module.css';
 
 type Props = {
@@ -21,6 +22,7 @@ export class EditableContent extends Component {
   @Reference private editableContent!: HTMLInputElement;
   private modelTemplate: Model<any>;
   private content: string | null = null;
+  private quillComponent = new Quill();
 
   constructor(
     private props: Props = {
@@ -51,7 +53,7 @@ export class EditableContent extends Component {
       {this.editModeEnabled ?
         <>
           {this.props.inputType === InputTypes.Html ?
-            <>quill editor</> :
+            <>{await this.quillComponent.Render()}</> :
             <>
               <input ref={this.editableContent} title={this.props.field} type="text" value={this.content} />
               <div class="cancel-save-button-wrapper">
@@ -90,7 +92,7 @@ export class EditableContent extends Component {
 
   private saveChanges = async (): Promise<void> => {
     const contentToSave = this.props.inputType === InputTypes.Html ?
-      'this.quillComponent.HtmlContent' :
+      this.quillComponent.HtmlContent :
       this.editableContent.value;
 
     this.modelTemplate[this.props.field] = contentToSave;
