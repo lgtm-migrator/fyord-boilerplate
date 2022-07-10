@@ -5,6 +5,6 @@ export enum Models {
   Content = ''
 }
 
-export const ModelRecord: Record<Models, new () => Model> = {
+export const ModelRecord: Record<Models, new () => Model<any>> = {
   [Models.Content]: Content
 };

@@ -1,6 +1,6 @@
-import { Page, ParseJsx, Route, Fragment, SeoService, App } from 'fyord';
-import { CrudButton } from '../../components/module';
-import { CrudTypes } from '../../enums/module';
+import { Page, ParseJsx, Route, Fragment, SeoService, App, RawHtml } from 'fyord';
+import { CrudButton, EditableContent } from '../../components/module';
+import { CrudTypes, InputTypes } from '../../enums/module';
 import { Content, Models } from '../../models/module';
 import { Authentication, IAuthentication } from '../../services/authentication/Authentication';
 import { IContentRepository, ContentRepository } from '../../services/contentRepository/contentRepository';
@@ -37,6 +37,7 @@ export class Default extends Page {
   }
 
 
+  // eslint-disable-next-line complexity
   Template = async () => {
     return <div class={styles.container}>
       {this.content && this.contentValid ?
@@ -45,7 +46,29 @@ export class Default extends Page {
             {await (<CrudButton model={Models.Content} type={CrudTypes.Update} />)}
             {await (<CrudButton model={Models.Content} type={CrudTypes.Delete} />)}
           </div>
-          <p>{JSON.stringify(this.content)}</p>
+          <article>
+            <h1>
+              {await (<EditableContent
+                model={Models.Content}
+                inputType={InputTypes.Text}
+                location={this.path || ''}
+                field="Title" />)}
+            </h1>
+
+            <p>
+              {await (<EditableContent
+                model={Models.Content}
+                inputType={InputTypes.Text}
+                location={this.path || ''}
+                field="Description" />)}
+            </p>
+
+            {await (<EditableContent
+              model={Models.Content}
+              inputType={InputTypes.Html}
+              location={this.path || ''}
+              field="Body" />)}
+          </article>
         </> :
         <>
           <h1>Content Not Found</h1>

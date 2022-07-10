@@ -19,9 +19,9 @@ type Props = {
 
 export class EditableContent extends Component {
   @State private editModeEnabled = false;
+  @State private content: string | null = null;
   @Reference private editableContent!: HTMLInputElement;
   private modelTemplate: Model<any>;
-  private content: string | null = null;
   private quillComponent = new Quill();
 
   constructor(
