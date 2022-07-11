@@ -33,7 +33,7 @@ export class Quill extends Component {
   }
 
   private get qlEditor(): HTMLDivElement {
-    return this.App.Main.querySelector('.ql-editor') as HTMLDivElement;
+    return this.Element?.querySelector('.ql-editor') as HTMLDivElement;
   }
 
   constructor(
