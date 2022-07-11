@@ -1,4 +1,5 @@
 import { Page, ParseJsx, Route, Fragment, SeoService, App } from 'fyord';
+import { Strings } from 'tsbase/System/Strings';
 import { CrudButton, EditableContent } from '../../components/module';
 import { CrudTypes, InputTypes } from '../../enums/module';
 import { Content, Models } from '../../models/module';
@@ -51,7 +52,7 @@ export class Default extends Page {
               {await (<EditableContent
                 model={Models.Content}
                 inputType={InputTypes.Text}
-                location={this.path || ''}
+                location={this.path || Strings.Empty}
                 field="Title" />)}
             </h1>
 
@@ -59,14 +60,14 @@ export class Default extends Page {
               {await (<EditableContent
                 model={Models.Content}
                 inputType={InputTypes.Text}
-                location={this.path || ''}
+                location={this.path || Strings.Empty}
                 field="Description" />)}
             </p>
 
             {await (<EditableContent
               model={Models.Content}
               inputType={InputTypes.Html}
-              location={this.path || ''}
+              location={this.path || Strings.Empty}
               field="Body" />)}
           </article>
         </> :

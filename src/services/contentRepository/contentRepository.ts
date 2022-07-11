@@ -118,7 +118,7 @@ export class ContentRepository implements IContentRepository {
   }
 
   private getJsonKeyPath(path: string): string {
-    return this.cleanPath(path).replace(/\//g, '.').replace('.', '');
+    return this.cleanPath(path).replace(/\//g, '.').replace('.', Strings.Empty);
   }
 
   private getEndpointWithPath(path: string): string {

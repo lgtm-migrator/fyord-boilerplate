@@ -1,4 +1,5 @@
 import { Component, ParseJsx, Jsx, Reference, Asap } from 'fyord';
+import { Strings } from 'tsbase/System/Strings';
 import styles from './quill.module.css';
 
 export enum Themes {
@@ -19,7 +20,8 @@ const toolbarOptions = [
 ];
 
 type Props = {
-  theme: Themes
+  theme: Themes,
+  initialContent: string
 }
 
 export class Quill extends Component {
@@ -36,7 +38,8 @@ export class Quill extends Component {
 
   constructor(
     private props: Props = {
-      theme: Themes.Snow
+      theme: Themes.Snow,
+      initialContent: Strings.Empty
     },
     _children?: Jsx
   ) {
@@ -54,11 +57,11 @@ export class Quill extends Component {
         }
       });
 
-      this.qlEditor.innerHTML = this.editorContainer.innerHTML;
+      this.qlEditor.innerHTML = this.props.initialContent;
     });
 
     return <div class={styles.container}>
-      <div ref={this.editorContainer}></div>
+      <div ref={this.editorContainer} />
     </div>;
   };
 }
