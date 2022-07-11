@@ -1,4 +1,4 @@
-import { Component, ParseJsx, Jsx, Asap, Fragment, State, Reference } from 'fyord';
+import { Component, ParseJsx, Jsx, Asap, Fragment, State, Reference, RawHtml } from 'fyord';
 import { Model } from 'tsbase/Models/Model';
 import { GenericResult } from 'tsbase/Patterns/Result/GenericResult';
 import { Strings } from 'tsbase/System/Strings';
@@ -68,7 +68,7 @@ export class EditableContent extends Component {
         </> :
         <>
           <div class={`${styles.content} ${this.authenticationService.Session && styles.editable}`}>
-            {this.content}
+            {await new RawHtml(this.content || '').Render()}
           </div>
           {this.authenticationService.Session &&
             <button onclick={() => this.editModeEnabled = true} class={styles.editButton} title={`Edit ${this.props.field}`}>
