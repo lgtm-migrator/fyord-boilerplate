@@ -23,7 +23,7 @@ export class ContentRepository implements IContentRepository {
     httpClient: IHttpClient = new HttpClient(),
     serializer: ISerializer = new JsonSerializer(),
     authenticationService = Authentication.Instance()
-  ): ContentRepository {
+  ): IContentRepository {
     if (!this.instance) {
       this.instance = new ContentRepository(httpClient, serializer, authenticationService);
     }

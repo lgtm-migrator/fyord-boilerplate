@@ -8,7 +8,7 @@ import { Authentication } from '../../services/authentication/Authentication';
 import { ContentRepository } from '../../services/contentRepository/contentRepository';
 import { Icons } from '../crudButton/icons';
 import { Quill, Themes } from '../quill/quill';
-import styles from './editableContent.module.css';
+import styles from './editableContent.module.scss';
 
 type Props = {
   inputType: InputTypes,
@@ -50,7 +50,7 @@ export class EditableContent extends Component {
       }
     });
 
-    return <div class={styles.container}>
+    return <div class={`${styles.container} ${this.authenticationService.Session ? styles.editable : Strings.Empty}`}>
       {this.editModeEnabled ?
         <>
           {this.props.inputType === InputTypes.Html ?
@@ -59,7 +59,7 @@ export class EditableContent extends Component {
               initialContent: this.content || ''
             })).Render() :
             <input ref={this.editableContent} title={this.props.field} type="text" value={this.content} />}
-          <div class="cancel-save-button-wrapper">
+          <div class={styles.cancelSaveButtonWrapper}>
             <button onclick={() => this.editModeEnabled = false}>
               {Icons.cancel}
             </button>
@@ -69,7 +69,7 @@ export class EditableContent extends Component {
           </div>
         </> :
         <>
-          <div class={`${styles.content} ${this.authenticationService.Session && styles.editable}`}>
+          <div class={styles.content}>
             {await new RawHtml(this.content || '', false).Render()}
           </div>
           {this.authenticationService.Session &&
