@@ -3,6 +3,7 @@ import { Strings } from 'tsbase/System/Strings';
 import { CrudButton, EditableContent } from '../../components/module';
 import { CrudTypes, InputTypes } from '../../enums/module';
 import { Content, Models } from '../../models/module';
+import { Routes } from '../../routes';
 import { Authentication, IAuthentication } from '../../services/authentication/Authentication';
 import { IContentRepository, ContentRepository } from '../../services/contentRepository/contentRepository';
 import styles from './default.module.css';
@@ -75,8 +76,8 @@ export class Default extends Page {
           <p>The resource you're looking for may have moved.</p>
 
           {!this.content && this.authenticationService.Session &&
-            <p>Would you like to
-              <a href={`/admin/content/${CrudTypes.Create}/${Models.Content}?path=${route?.path}`}>
+            <p>Would you like to{' '}
+              <a href={Routes.Admin(CrudTypes.Create, Models.Content, route?.path)}>
                 create a page at "{route?.path}"?
               </a>
             </p>}
