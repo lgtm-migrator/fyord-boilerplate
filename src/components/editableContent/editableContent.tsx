@@ -8,7 +8,7 @@ import { Authentication } from '../../services/authentication/Authentication';
 import { ContentRepository } from '../../services/contentRepository/contentRepository';
 import { Icons } from '../crudButton/icons';
 import { Quill, Themes } from '../quill/quill';
-import styles from './editableContent.module.scss';
+import styles from './editableContent.module.css';
 
 type Props = {
   inputType: InputTypes,
