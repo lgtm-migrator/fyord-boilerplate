@@ -8,12 +8,10 @@ import { IContentRepository, ContentRepository } from '../../services/contentRep
 import styles from './default.module.css';
 
 export class Default extends Page {
-  private path?: string;
   private content: Content | null = null;
   private contentValid = false;
 
   Route = async (route: Route) => {
-    this.path = route.path;
     const contentResult = await this.contentRepository.Get<Content>(Content, route.path);
 
     if (contentResult.IsSuccess) {
@@ -39,7 +37,7 @@ export class Default extends Page {
 
 
   // eslint-disable-next-line complexity
-  Template = async () => {
+  Template = async (route?: Route) => {
     return <div class={styles.container}>
       {this.content && this.contentValid ?
         <>
@@ -52,7 +50,7 @@ export class Default extends Page {
               {await (<EditableContent
                 model={Models.Content}
                 inputType={InputTypes.Text}
-                location={this.path || Strings.Empty}
+                location={route?.path || Strings.Empty}
                 field="Title" />)}
             </h1>
 
@@ -60,26 +58,26 @@ export class Default extends Page {
               {await (<EditableContent
                 model={Models.Content}
                 inputType={InputTypes.Text}
-                location={this.path || Strings.Empty}
+                location={route?.path || Strings.Empty}
                 field="Description" />)}
             </p>
 
             {await (<EditableContent
               model={Models.Content}
               inputType={InputTypes.Html}
-              location={this.path || Strings.Empty}
+              location={route?.path || Strings.Empty}
               field="Body" />)}
           </article>
         </> :
         <>
           <h1>Content Not Found</h1>
-          <p>"{this.path}" didn't correspond with any known page.</p>
+          <p>"{route?.path}" didn't correspond with any known page.</p>
           <p>The resource you're looking for may have moved.</p>
 
           {!this.content && this.authenticationService.Session &&
             <p>Would you like to
-              <a href={`/admin/content/${CrudTypes.Create}/${Models.Content}?path=${this.path}`}>
-                create a page at "{this.path}"?
+              <a href={`/admin/content/${CrudTypes.Create}/${Models.Content}?path=${route?.path}`}>
+                create a page at "{route?.path}"?
               </a>
             </p>}
         </>}

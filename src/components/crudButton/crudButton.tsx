@@ -11,6 +11,11 @@ type Props = {
 }
 
 export class CrudButton extends Component {
+  private get path(): string | undefined {
+    const currentPath = this.App.Router.Route.CurrentIssue?.path;
+    return currentPath === '/' ? '/root' : currentPath;
+  }
+
   constructor(
     private props: Props = {
       type: CrudTypes.Read,
@@ -23,7 +28,7 @@ export class CrudButton extends Component {
 
   Template = async () => <>
     {this.authentication.Session &&
-      <a class={styles.container} href={`/admin/content/${this.props.type}/${this.props.model}?path=${this.App.Router.CurrentRoute?.path}`}>
+      <a class={styles.container} href={`/admin/content/${this.props.type}/${this.props.model}?path=${this.path}`}>
         {Icons[this.props.type]}
       </a>}
   </>;
