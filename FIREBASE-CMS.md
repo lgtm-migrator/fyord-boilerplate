@@ -14,16 +14,16 @@ Heavily based on previous work with tsbase-components and our cms branch on the 
   - pages
     - [-] default
     - [x] login
-    - crudForm
-      - inputs
-        - input
-        - text
-        - textArray
-        - html
-        - checkbox
-        - select
-        - object
-        - objectArray
+    - [-] crudForm
+      - [ ] inputs
+        - [ ] input
+        - [ ] text
+        - [ ] textArray
+        - [ ] html
+        - [ ] checkbox
+        - [ ] select
+        - [ ] object
+        - [ ] objectArray
     - [x] contentList
   - components
     - [x] editableContent

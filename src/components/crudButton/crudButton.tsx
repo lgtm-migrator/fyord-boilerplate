@@ -4,6 +4,7 @@ import { Models } from '../../models/module';
 import { IAuthentication, Authentication } from '../../services/authentication/Authentication';
 import { Icons } from './icons';
 import styles from './crudButton.module.css';
+import { Routes } from '../../routes';
 
 type Props = {
   type: CrudTypes,
@@ -28,7 +29,7 @@ export class CrudButton extends Component {
 
   Template = async () => <>
     {this.authentication.Session &&
-      <a class={styles.container} href={`/admin/content/${this.props.type}/${this.props.model}?path=${this.path}`}>
+      <a class={styles.container} href={Routes.Admin(this.props.type, this.props.model, this.path as string)}>
         {Icons[this.props.type]}
       </a>}
   </>;
