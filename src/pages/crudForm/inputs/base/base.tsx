@@ -1,14 +1,13 @@
-import { Component, ParseJsx, Jsx } from 'fyord';
-import { Model } from 'tsbase/Models/Model';
+import { Component, Jsx } from 'fyord';
+import { Model, InputTypes } from 'tsbase/Models/module';
 import { Result } from 'tsbase/Patterns/Result/Result';
 import { Strings } from 'tsbase/System/Strings';
-import { CrudTypes, InputTypes } from '../../../../enums/module';
+import { CrudTypes } from '../../../../enums/module';
 import { FormInput, IFormInput } from '../../../../services/formInput/formInput';
-import styles from './base.module.css';
 
 export type ValueType = string | number | boolean;
 
-type Props = {
+export type CrudInputProps = {
   fieldName: string,
   formId: string,
   inputType: InputTypes
@@ -22,21 +21,14 @@ export abstract class Base extends Component {
   public get EditInputId() { return `${this.props.fieldName}EditInput`; }
 
   constructor(
-    private props: Props = {
-      fieldName: '',
-      formId: '',
-      inputType: InputTypes.Text,
-      crudType: CrudTypes.Read
-    },
+    protected props: CrudInputProps,
     _children?: Jsx,
     protected formInputService: IFormInput = FormInput.Instance
   ) {
     super();
   }
 
-  Template = async () => <div class={styles.container}>
-
-  </div>;
+  protected abstract getInputValue(): ValueType | Array<ValueType>;
 
   protected get readOnlyAttribute(): string {
     return this.props.crudType === CrudTypes.Read || this.props.crudType === CrudTypes.Delete ?
@@ -81,9 +73,6 @@ export abstract class Base extends Component {
       throw new Error(formInputResult.ErrorMessages[0]);
     }
   }
-
-
-  protected abstract getInputValue(): ValueType | Array<ValueType>;
 
   protected updateInputValue(): Result {
     const currentFormInputModelResult = this.formInputService.GetFormInput<Model<any>>(this.props.formId);

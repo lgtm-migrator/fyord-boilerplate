@@ -1,8 +1,8 @@
 import { Component, ParseJsx, Jsx, Asap, Fragment, State, Reference, RawHtml } from 'fyord';
+import { InputTypes } from 'tsbase/Models/inputTypes';
 import { Model } from 'tsbase/Models/Model';
 import { GenericResult } from 'tsbase/Patterns/Result/GenericResult';
 import { Strings } from 'tsbase/System/Strings';
-import { InputTypes } from '../../enums/module';
 import { ModelRecord, Models } from '../../models/module';
 import { Authentication } from '../../services/authentication/Authentication';
 import { ContentRepository } from '../../services/contentRepository/contentRepository';

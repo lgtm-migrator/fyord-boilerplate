@@ -1,17 +1,11 @@
-import { TestHelpers, Asap, ParseJsx } from 'fyord';
-import { Base, ValueType } from './base';
+import { TestHelpers, Asap } from 'fyord';
+import { Object } from './object';
 
-describe('Base', () => {
-  class TestClass extends Base {
-    Template = async () => <div></div>;
-    protected getInputValue(): ValueType | ValueType[] {
-      throw new Error('Method not implemented.');
-    }
-  }
-  let classUnderTest: TestClass;
+describe('Object', () => {
+  let classUnderTest: Object;
 
   beforeEach(() => {
-    classUnderTest = new TestClass();
+    classUnderTest = new Object();
   });
 
   it('should construct', () => {

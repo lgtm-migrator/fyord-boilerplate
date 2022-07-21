@@ -1,6 +1,6 @@
 import { TestHelpers, Asap } from 'fyord';
 import { Mock } from 'tsmockit';
-import { InputTypes } from '../../enums/inputTypes';
+import { InputTypes } from 'tsbase/Models/inputTypes';
 import { Models } from '../../models/models';
 import { IAuthentication } from '../../services/authentication/Authentication';
 import { IContentRepository } from '../../services/contentRepository/contentRepository';
