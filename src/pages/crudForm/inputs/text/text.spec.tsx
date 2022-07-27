@@ -1,15 +1,11 @@
 import { TestHelpers, Asap } from 'fyord';
-import { Quill } from './quill';
+import { Text } from './text';
 
-class FakeQuill { }
-
-describe('Quill', () => {
-  let classUnderTest: Quill;
+describe('Text', () => {
+  let classUnderTest: Text;
 
   beforeEach(() => {
-    classUnderTest = new Quill(
-      undefined, undefined, FakeQuill
-    );
+    classUnderTest = new Text();
   });
 
   it('should construct', () => {

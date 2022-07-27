@@ -41,16 +41,15 @@ export class Quill extends Component {
       theme: Themes.Snow,
       initialContent: Strings.Empty
     },
-    _children?: Jsx
+    _children?: Jsx,
+    private quillConstructor = window['Quill']
   ) {
     super();
   }
 
   Template = async () => {
     Asap(() => {
-      const Quill = window['Quill'];
-
-      this.Quill = new Quill(this.editorContainer, {
+      this.Quill = new this.quillConstructor(this.editorContainer, {
         theme: this.props.theme,
         modules: {
           toolbar: toolbarOptions
