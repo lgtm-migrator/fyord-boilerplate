@@ -5,18 +5,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    bundle: './src/index.ts',
-    'service-worker': './src/service-worker.ts'
+    bundle: './src/index.ts'
   },
   mode: 'development',
-  devServer: {
-    contentBase: './public',
-    compress: true,
-    port: 4200,
-    historyApiFallback: {
-      disableDotRule: true
-    }
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html'

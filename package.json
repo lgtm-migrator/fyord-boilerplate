@@ -7,13 +7,15 @@
   "author": "Fyord",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "start": "webpack serve --config webpack.dev.js",
+    "tsc-el": "tsc -w src/electron/*.ts --outDir ./public",
+    "tsc-el-once": "tsc src/electron/*.ts --outDir ./public",
+    "build": "npm run tsc-el-once && webpack --config webpack.prod.js",
+    "serve": "electron public/main.js",
+    "start": "npm run build && concurrently \"npm run tsc-el\" \"webpack -w --config webpack.dev.js\" \"npm run serve\"",
     "test": "jest --watch",
     "test-once": "jest --passWithNoTests --collectCoverage --coverageReporters lcov clover",
     "lint": "eslint ./src --ext .ts,.tsx",
-    "lint-fix": "eslint ./src --ext .ts,.tsx --fix",
-    "pre-render": "fyord prerender && cp -R public/pre-render/* public/ && rm -rf public/pre-render"
+    "lint-fix": "eslint ./src --ext .ts,.tsx --fix"
   },
   "devDependencies": {
     "@types/jasmine": "^2.8.17",
@@ -47,7 +49,8 @@
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^4.2.2",
     "electron": "^20.0.3",
-    "electron-packager": "^15.5.1"
+    "electron-packager": "^15.5.1",
+    "concurrently": "^7.3.0"
   },
   "dependencies": {
     "file-loader": "^6.2.0"
