@@ -45,7 +45,9 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "electron": "^20.0.3",
+    "electron-packager": "^15.5.1"
   },
   "dependencies": {
     "file-loader": "^6.2.0"
