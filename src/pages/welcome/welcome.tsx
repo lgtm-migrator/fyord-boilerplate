@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { ParseJsx, Page, Route } from 'fyord';
 import styles from './welcome.module.css';
 
@@ -8,7 +9,7 @@ const githubIcon = <svg class="octicon octicon-mark-github v-align-middle" width
 
 export class WelcomePage extends Page {
   Title = 'Welcome!';
-  Route = async (route: Route) => route.path === document.baseURI.split(location.origin)[1];
+  Route = async (route: Route) => route.href.replace(document.baseURI, '').replace('.html', '') === 'index';
   Template = async () => {
     return <div class={styles.welcome}>
       <header>
