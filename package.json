@@ -7,11 +7,8 @@
   "author": "Fyord",
   "license": "MIT",
   "scripts": {
-    "tsc-el": "tsc -w src/electron/*.ts --outDir ./public",
-    "tsc-el-once": "tsc src/electron/*.ts --outDir ./public",
-    "build": "npm run tsc-el-once && webpack --config webpack.prod.js",
-    "serve": "electron public/main.js",
-    "start": "npm run build && concurrently \"npm run tsc-el\" \"webpack -w --config webpack.dev.js\" \"npm run serve\"",
+    "build": "tsc src/electron/*.ts --outDir ./public && webpack --config webpack.prod.js",
+    "start": "webpack -w --config webpack.dev.js",
     "test": "jest --watch",
     "test-once": "jest --passWithNoTests --collectCoverage --coverageReporters lcov clover",
     "lint": "eslint ./src --ext .ts,.tsx",
@@ -26,6 +23,8 @@
     "copy-webpack-plugin": "^6.2.1",
     "core-js": "^2.6.5",
     "css-loader": "^5.2.7",
+    "electron": "^20.0.3",
+    "electron-packager": "^15.5.1",
     "eslint": "^6.8.0",
     "fyord": "^2.2.1",
     "fyord-cli": "^1.4.0",
@@ -48,9 +47,7 @@
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^4.2.2",
-    "electron": "^20.0.3",
-    "electron-packager": "^15.5.1",
-    "concurrently": "^7.3.0"
+    "webpack-shell-plugin": "^0.5.0"
   },
   "dependencies": {
     "file-loader": "^6.2.0"
