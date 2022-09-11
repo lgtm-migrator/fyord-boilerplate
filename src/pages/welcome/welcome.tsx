@@ -15,13 +15,13 @@ export class WelcomePage extends Page {
       <header>
         <div>
           {fyordIcon}
-          <h1>Welcome to Fyord 1</h1>
+          <h1>Welcome to Fyord w/Electron</h1>
           <p>For a quick overview, visit <a href="http://fyord.dev">fyord.dev</a></p>
         </div>
       </header>
 
       <footer>
-        <a href="https://github.com/Fyord/fyord" target="_blank" title="Fork Fyord on GitHub!">
+        <a rel="noopener" href="https://github.com/Fyord/fyord" target="_blank" title="Fork Fyord on GitHub!">
           {githubIcon}
         </a>
       </footer>

@@ -6,9 +6,8 @@ export class NotFoundPage extends Page {
   Title = 'Not Found';
 
   RenderMode = RenderModes.Dynamic;
-  Route = async (route: Route) => {
+  Route = async (route?: Route) => {
     this.recoverFromNonReLoadableState(route);
-
     return true;
   };
 
@@ -21,10 +20,10 @@ export class NotFoundPage extends Page {
     </div>;
   }
 
-  private recoverFromNonReLoadableState(route: Route) {
+  private recoverFromNonReLoadableState(route?: Route) {
     Asap(() => {
       if (!location.href.includes(baseUrl)) {
-        location.href = `${Routes.NotFound}?originalRoute=${route.href}`;
+        location.href = `${Routes.NotFound}?originalRoute=${route?.href}`;
       }
     });
   }

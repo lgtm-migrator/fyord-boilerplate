@@ -25,7 +25,7 @@ describe('NotFoundPage', () => {
   });
 
   it('should render a message including the decoded uri of the current url', async () => {
-    const route = { path: 'fake%20page' } as Route;
+    const route = { href: 'fake%20page' } as Route;
     const expected = 'fake page';
 
     const htmlString = JSON.stringify(await classUnderTest.Template(route));
