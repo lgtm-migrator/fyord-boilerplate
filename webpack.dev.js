@@ -8,7 +8,9 @@ module.exports = merge(common, {
   plugins: [
     new WebpackShellPlugin({
       onBuildStart: [
-        'tsc -w ./src/electron/*.ts --outDir ./public'
+        'tsc -w ./src/electron/main.ts --outDir ./public',
+        'tsc -w ./src/electron/preload.ts --outDir ./public',
+        'tsc -w ./src/electron/renderer.ts --outDir ./public'
       ],
       onBuildEnd: [
         'electron public/main.js'

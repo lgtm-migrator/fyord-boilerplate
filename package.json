@@ -7,7 +7,7 @@
   "author": "Fyord",
   "license": "MIT",
   "scripts": {
-    "build": "tsc src/electron/*.ts --outDir ./public && webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js",
     "start": "webpack -w --config webpack.dev.js",
     "test": "jest --watch",
     "test-once": "jest --passWithNoTests --collectCoverage --coverageReporters lcov clover",
